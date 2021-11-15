@@ -1,0 +1,22 @@
+<head>
+</head>
+<body style="font-family: Consolas;">
+    <script type="text/javascript">
+        function escape(field) {
+            let s = field.value
+                .replaceAll(/[[\]{}()*+?./\\^$|()]/g, '\\$&')
+                .replaceAll(/(\n+)/ig, '\\n*')
+                .replaceAll(/(\s+)/ig, '\\s*');
+            document.getElementById('pre').innerText = s;
+        }
+    </script>
+    <div>
+        <p style="font-size: 24px">Whitespace-invariant regex replacement (for replacing copypasted code blocks)</p>
+        <textarea id="area" onchange="escape(this);" style="width:100%; height:320px; font-size: 24px; font-family: Consolas;"></textarea>
+        <pre id="pre" style="font-size: 24px; width:100%; overflow-x: auto;"></pre>
+    </div> 
+    <script type="text/javascript">
+        
+        escape(document.getElementById('area'))
+    </script>
+</body>
